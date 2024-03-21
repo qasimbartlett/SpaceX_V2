@@ -17,4 +17,5 @@ filename=$1
 python3 spacex_2.py  $filename  | tee ${filename}_debug.txt
 
 gsutil -m cp -r ${filename}*  gs://spacex_mq/
+gsutil -m cp -r *.csv         gs://spacex_mq/
 

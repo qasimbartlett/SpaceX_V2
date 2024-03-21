@@ -16,14 +16,14 @@
 	run_calculate_yield.sh	
 	run_good_bad_filter.sh
 
-3. Create files. This is a little involved and I did not write steps for this
+3. Create files. This is a little involved and I write steps for this in the presentation slide.
      pass_band_frequencies
      stop_band_left_frequencies
      stop_band_right_frequencies
 
 4. To run do
 	run_calculate_yield.sh 
-	// After seeing the graph close it. Log uploads into cloud will begn after this
+	// After seeing the graph close it. 
 
 
 5. The code will print many lines (Used for debugging. Will be removed later).
@@ -35,7 +35,7 @@ Yield=98.9795918367347
 This is the best yield and there are multiple thresholds that result in this yield.
 
 
-6. To checl good-pass filter for each file do
+6. To check good-pass filter for each file do
 	run_good_bad_filter.sh <filename>
 
 

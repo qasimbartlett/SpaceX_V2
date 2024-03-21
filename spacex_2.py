@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import re
 from collections import defaultdict
 import sys
-
+import socket
 
 class FrequencyBand(object):
     def __init__(self, s2p_file, network, frequencies_file, band_low, band_high):
@@ -121,9 +121,18 @@ class Spacex(object):
         filters_processed = 0
 
         s2p_object = S2p(s2p_file)
-        good_all_band_filters = s2p_object.is_filter_good(self.pass_band_low_db_threshold, self.pass_band_high_db_threshold,
-                                                          self.stop_band_low_db_threshold, self.stop_band_high_db_threshold)
-        print(f'good_all_band_filters:  {good_all_band_filters}')
+        good_all_band_filters = s2p_object.is_filter_good(self.pass_band_low_db_threshold,
+                                                          self.pass_band_high_db_threshold,
+                                                          self.stop_band_low_db_threshold,
+                                                          self.stop_band_high_db_threshold)
+        self.save_result_in_csv(s2p_file, good_all_band_filters)
+
+    def save_result_in_csv(self, filename, good_bad, csv_file='all_results.csv'):
+        print(f'{filename} good_all_band_filters:  {good_bad}')
+        hostname = socket.gethostname()
+        with open(csv_file, "a") as my_file:
+            my_file.write(f'{hostname},{filename},{good_bad}\n')
+        my_file.close()
 
 
 if __name__ == "__main__":

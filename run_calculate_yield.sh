@@ -1,12 +1,8 @@
 #!/bin/bash
 
+# When bazel is used:
 # bazel sync
-# bazel test //src/main/spacex/RF/ATS/spacex Measurement_8979797989.sp2
-# gsutil -m mv -r Measurement_8979797989.sp2 gs://spacex/
-
-
-
-
+# bazel test //src/main/spacex/RF/ATS/spacex 
 
 python3 spacex.py  | tee all_files_debug
 
