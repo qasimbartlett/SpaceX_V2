@@ -1,0 +1,41 @@
+
+0. Install python on your computer/host by https://www.python.org/downloads/
+
+1. Install skrf by 
+	pip install scikit-rf
+		OR
+	following https://scikit-rf.readthedocs.io/en/latest/tutorials/Installation.html
+
+2. Install other libraries as
+	pip install Matplotlib
+	pip install numpy
+
+2a: If possible install gsutil following https://cloud.google.com/storage/docs/gsutil_install.
+    This is used to upload logs into gcloud.
+    If gcloud is NOT installed, comnment out the lines starting with "gsutil" from 
+	run_calculate_yield.sh	
+	run_good_bad_filter.sh
+
+3. Create files. This is a little involved and I did not write steps for this
+     pass_band_frequencies
+     stop_band_left_frequencies
+     stop_band_right_frequencies
+
+4. To run do
+	run_calculate_yield.sh 
+	// After seeing the graph close it. Log uploads into cloud will begn after this
+
+
+5. The code will print many lines (Used for debugging. Will be removed later).
+   After code is done, scroll few pages up to see
+
+Yield=98.9795918367347 
+             ('Yield in PASS_BAND_Thresholds = 0 to -24  STOP_BAND_Thresholds=-30 to -200;  Number of filters processed=98 good_filters=97 Yield=', 98.9795918367347)
+
+This is the best yield and there are multiple thresholds that result in this yield.
+
+
+6. To checl good-pass filter for each file do
+	run_good_bad_filter.sh <filename>
+
+
